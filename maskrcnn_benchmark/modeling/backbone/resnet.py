@@ -22,7 +22,8 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
-from maskrcnn_benchmark.layers import FrozenBatchNorm2d
+from maskrcnn_benchmark.layers import FrozenBatchNorm2d   # using it instead of BatchNorm2d since the sizes of BatchNorm2d the batches are very small, 
+                                                          # which makes the batch statistics very poor and degrades performance
 from maskrcnn_benchmark.layers import Conv2d
 from maskrcnn_benchmark.modeling.make_layers import group_norm
 from maskrcnn_benchmark.utils.registry import Registry
